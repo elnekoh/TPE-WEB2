@@ -11,17 +11,12 @@ class PeliculasController{
         $this->view = new PeliculasView();
     }
 
-    public function mostrarPeliculas(){
-        if(!isset($_GET["genero"]) || empty($_GET["genero"])){
-            $genero=null;
-        }else{
-            $genero = $_GET["genero"];
-        }
+    public function mostrarpeliculas($params = null){
+        $genero = $params[":GENERO"];
         $peliculas=$this->model->getPeliculas($genero);
         $this->view->renderPeliculas($peliculas);
-        echo"uwu";
     }
-
+    
     public function mostrarHome(){
         $this->view->renderHome();
     }

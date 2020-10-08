@@ -7,6 +7,7 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
 $router= new Router();
 
 //rutas
+$router->addRoute("peliculas/:GENERO", "GET", "peliculasController", "mostrarpeliculas");
 $router->addRoute("peliculas", "GET", "peliculasController", "mostrarPeliculas"); // (url,verb,controller,method)
 
 //ruta por defecto
