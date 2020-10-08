@@ -19,6 +19,7 @@ class PeliculasController{
         }
         $peliculas=$this->model->getPeliculas($genero);
         $this->view->renderPeliculas($peliculas);
+        echo"uwu";
     }
 
     public function mostrarHome(){

@@ -1,20 +1,16 @@
-<?php 
+<?php
 require_once 'app/controller/peliculasController.php';
+require_once 'routerClass.php';
 
-$controller = new PeliculasController();
-if(!empty($_GET["action"])){
-    $action=$_GET["action"];
-}else{
-    $action="home";
-}
+define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
-$params=explode("/",$action);
+$router= new Router();
 
-switch($params[0]){
-    case 'home':
-        $controller->mostrarHome();
-        break;
-    case 'peliculas':
-        $controller->mostrarPeliculas();
-        break;
-}
+//rutas
+$router->addRoute("peliculas", "GET", "peliculasController", "mostrarPeliculas"); // (url,verb,controller,method)
+
+//ruta por defecto
+$router->setDefaultRoute("peliculasController", "mostrarHome");
+
+
+$router->route($_GET['action'], $_SERVER['REQUEST_METHOD']);
