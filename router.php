@@ -9,6 +9,8 @@ $router= new Router();
 //rutas
 $router->addRoute("peliculas/:GENERO", "GET", "peliculasController", "mostrarpeliculas");
 $router->addRoute("peliculas", "GET", "peliculasController", "mostrarPeliculas"); // (url,verb,controller,method)
+$router->addRoute("item/:ID", "GET", "peliculasController", "mostrarItem");
+
 
 //ruta por defecto
 $router->setDefaultRoute("peliculasController", "mostrarHome");

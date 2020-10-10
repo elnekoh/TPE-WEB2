@@ -21,4 +21,12 @@ class PeliculasController{
         $this->view->renderHome();
     }
 
+    public function mostrarItem($params = null){
+        //traer la peli
+        $id=$params[":ID"];
+        $pelicula=$this->model->getPelicula($id);
+        //mostrar la peli
+        $this->view->renderItem($pelicula);
+    }
+
 }

@@ -23,4 +23,14 @@ class PeliculasModel{
             return $peliculas;
         }
     }
+
+    public function getPelicula($id){
+        if($id != null){
+            echo "<b>";
+            $query=$this->db->prepare("SELECT * FROM pelicula WHERE id_pelicula=?");
+            $query->execute(array($id));
+            $rowPelicula=$query->fetchAll(PDO::FETCH_OBJ);
+            return $rowPelicula;
+        }
+    }
 }

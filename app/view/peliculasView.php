@@ -5,8 +5,9 @@ require_once "./libs/smarty/Smarty.class.php";
 
 class PeliculasView {
 
+  private $smarty;
     public function __construct(){
-        
+      $this->smarty = new Smarty();   
     }
 
     function mostrarError(){
@@ -14,14 +15,17 @@ class PeliculasView {
     }
 
     function renderHome(){
-      $smarty = new Smarty();
-      $smarty->display('templates/home.tpl');
+      $this->smarty->display('templates/home.tpl');
     }
 
     public function renderPeliculas($peliculas){
-      $smarty = new Smarty();
-      $smarty->assign('peliculas', $peliculas);
-      $smarty->display('templates/tablaPelis.tpl');
+      $this->smarty->assign('peliculas', $peliculas);
+      $this->smarty->display('templates/tablaPelis.tpl');
+    }
+
+    public function renderItem($pelicula){
+      $this->smarty->assign('pelicula', $pelicula);
+      $this->smarty->display('templates/item.tpl');
     }
 }
        
