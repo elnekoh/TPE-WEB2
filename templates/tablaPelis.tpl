@@ -12,10 +12,12 @@
     <tbody>
     {$contador=1}
     {foreach from= $peliculas item=pelicula}
-        <tr><th scope="row">{$contador++}</th>
-        <td>{$pelicula->nombre}</td>
-        <td>{$pelicula->precio}</td>
-        <td>{$pelicula->id_genero}</td></tr>
+        <tr>
+            <th scope="row">{$contador++}</th>
+            <td><a href="pelicula/{$pelicula->id_pelicula}">{$pelicula->nombre}</a></td>
+            <td>{$pelicula->precio}</td>
+            <td>{$pelicula->id_genero}</td>
+        </tr>
     {/foreach}
 
     </tbody>
