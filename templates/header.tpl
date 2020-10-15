@@ -26,6 +26,8 @@
                         <a class="nav-link" href="peliculas">Peliculas</a>
                     </li>
                     </ul>
+                    <a href="login"><button type="button" class="btn btn-primary">Login</button></a> 
+                    <a href="logout"><button type="button" class="btn btn-danger">Logout</button></a> 
                 </div>
-                </nav>
+            </nav>
         </header>
