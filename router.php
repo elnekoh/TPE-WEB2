@@ -28,6 +28,7 @@ $router->addRoute("crear/genero","POST","peliculasController","insertarGenero");
 $router->addRoute("editar/genero/:ID","GET","peliculasController","mostrarEditarGenero");
 $router->addRoute("editar/genero/sending/:ID", "POST", "peliculasController", "editarGenero");
 $router->addRoute("borrar/genero/:ID","GET", "peliculasController","borrarGenero");
+$router->addRoute("generos","GET", "peliculasController","mostrarGeneros");
 
 
 //ruta por defecto

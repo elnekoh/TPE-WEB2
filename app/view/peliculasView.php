@@ -11,8 +11,9 @@ class PeliculasView {
       $this->smarty = new Smarty(); 
     }
 
-    function renderHome(){
-      $this->smarty->display('templates/home.tpl');
+    function renderGeneros($generos){
+      $this->smarty->assign('generos', $generos);
+      $this->smarty->display('templates/tablaGeneros.tpl');
     }
 
     public function renderPeliculas($peliculas){
@@ -29,12 +30,14 @@ class PeliculasView {
       $this->smarty->assign('peliculas', $peliculas);
       $this->smarty->assign("generos", $generos);
       $this->smarty->assign("action","crear/pelicula");
+      $this->smarty->assign('textoForm', "Crear nuevo");
       $this->smarty->display('templates/adminPeliculas.tpl');
     }
 
     public function renderGenerosAdmin($generos){
       $this->smarty->assign("generos",$generos);
       $this->smarty->assign("action","crear/genero");
+      $this->smarty->assign('textoForm', "Crear nuevo");
       $this->smarty->display("templates/adminGeneros.tpl");
     }
 
@@ -42,12 +45,14 @@ class PeliculasView {
       $this->smarty->assign("id_pelicula",$id);
       $this->smarty->assign("generos",$generos);
       $this->smarty->assign("action","editar/pelicula/sending/".$id);
+      $this->smarty->assign('textoForm', "Editar");
       $this->smarty->display("templates/editarPelicula.tpl");
     }
 
     public function renderEditarGeneros($id){
       $this->smarty->assign("id_genero",$id);
       $this->smarty->assign("action","editar/genero/sending/".$id);
+      $this->smarty->assign('textoForm', "Editar");
       $this->smarty->display("templates/editarGenero.tpl");
     }
 
