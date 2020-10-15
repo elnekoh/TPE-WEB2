@@ -28,8 +28,9 @@ class PeliculasController{
         $this->view->renderPeliculas($peliculas);
     }
     
-    public function mostrarHome(){
-        $this->view->renderHome();
+    public function mostrarGeneros(){
+        $generos=$this->generosModel->getGeneros();
+        $this->view->renderGeneros($generos);
     }
 
     public function mostrarItem($params = null){

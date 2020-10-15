@@ -1,5 +1,7 @@
+
 .container{
     display: flex;
+    flex-wrap: wrap;
 }
 
 .item{
@@ -28,3 +30,34 @@ p.descripcion{
     justify-content: center;
     align-items: center;
 }
+
+.tabla{
+    border-radius: 15px;
+    border: solid black 5px;
+    width: 700px;
+    height: 500px;
+}
+
+h1.tituloForm{
+    text-align: center;
+}
+
+/*
+.color-primary-0 { color: #144B42 }	/* Main Primary color 
+.color-primary-1 { color: #3D776D }
+.color-primary-2 { color: #255E54 }
+.color-primary-3 { color: #06342C }
+.color-primary-4 { color: #001E19 }
+
+.color-secondary-1-0 { color: #201F53 }	/* Main Secondary color (1) 
+.color-secondary-1-1 { color: #4E4D83 }
+.color-secondary-1-2 { color: #333268 }
+.color-secondary-1-3 { color: #0F0E3A }
+.color-secondary-1-4 { color: #050421 }
+
+.color-secondary-2-0 { color: #506E1D }	/* Main Secondary color (2) 
+.color-secondary-2-1 { color: #8FAE59 }
+.color-secondary-2-2 { color: #6B8A36 }
+.color-secondary-2-3 { color: #334C08 }
+.color-secondary-2-4 { color: #1C2C00 }
+*/

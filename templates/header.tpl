@@ -5,8 +5,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <link rel="stylesheet" href="{BASE_URL}app/view/css/estilo.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" href="./app/view/css/estilo.css">
     </head>
     <body>
         <header>
@@ -19,12 +19,21 @@
                 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="peliculas">Peliculas</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="peliculas">Peliculas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="generos">Generos</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle"id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Admin
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="admin/peliculas">Administrar peliculas</a>
+                                <a class="dropdown-item" href="admin/generos">Administrar generos</a>
+                            </div>
+                        </li>
                     </ul>
                     <a href="login"><button type="button" class="btn btn-primary">Login</button></a> 
                     <a href="logout"><button type="button" class="btn btn-danger">Logout</button></a> 

@@ -1,4 +1,4 @@
-<h1>Crear nuevo genero</h1>
+<h1 class="tituloForm">{$textoForm} genero</h1>
 <form method="post" action="{$action}">
     <div class="col">
         <label for="nombre" >Nombre</label>
