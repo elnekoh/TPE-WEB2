@@ -20,7 +20,7 @@ class PeliculasView {
       $this->smarty->display('templates/tablaPelis.tpl');
     }
 
-    public function renderItem($pelicula,$isLoggin){
+    public function renderItem($pelicula){
       $this->smarty->assign('pelicula', $pelicula);
       $this->smarty->display('templates/item.tpl');
     }

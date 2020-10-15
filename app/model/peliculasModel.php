@@ -47,26 +47,4 @@ class PeliculasModel{
         $query = $this->db->prepare("UPDATE pelicula SET nombre=?, descripcion=?, precio=?, id_genero=? WHERE id_pelicula=?");
         $query->execute(array($_POST["nombre"],$_POST["descripcion"],$_POST["precio"],$_POST["id_genero"],$id));
     }
-
-    public function getGeneros(){
-        $query = $this->db->prepare("SELECT * FROM genero");
-        $query->execute();
-        $generos=$query->fetchAll(PDO::FETCH_OBJ);
-        return $generos;
-    }
-
-    public function insertarGenero(){
-        $query= $this->db->prepare("INSERT INTO genero(nombre) VALUES(?)");
-        $query->execute(array($_POST["nombre"]));
-    }
-
-    public function editarGenero($id){
-        $query = $this->db->prepare("UPDATE genero SET nombre=? WHERE id_genero = ?");
-        $query->execute(array($_POST["nombre"],$id));
-    }
-
-    public function borrarGenero($id){
-        $query = $this->db->prepare("DELETE FROM genero WHERE id_genero=?");
-        $query->execute(array($id));
-    }
 }

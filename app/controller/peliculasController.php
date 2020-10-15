@@ -4,11 +4,13 @@ require_once "app/model/generosModel.php";
 require_once 'app/view/peliculasView.php';
 
 class PeliculasController{
-    private $model;
+    private $peliculasModel;
+    private $generosModel;
     private $view;
 
     public function __construct(){
-        $this->model = new PeliculasModel();
+        $this->peliculasModel = new PeliculasModel();
+        $this->generosModel = new GenerosModel();
         $this->view = new PeliculasView();
     }
 
@@ -22,7 +24,7 @@ class PeliculasController{
     
     public function mostrarpeliculas($params = null){
         $genero = $params[":GENERO"];
-        $peliculas=$this->model->getPeliculas($genero);
+        $peliculas=$this->peliculasModel->getPeliculas($genero);
         $this->view->renderPeliculas($peliculas);
     }
     
@@ -33,54 +35,54 @@ class PeliculasController{
     public function mostrarItem($params = null){
         //traer la peli
         $id=$params[":ID"];
-        $pelicula=$this->model->getPelicula($id);
+        $pelicula=$this->peliculasModel->getPelicula($id);
         //mostrar la peli
         $this->view->renderItem($pelicula);
     }
 
     public function mostrarPeliculasAdmin(){
         $this->checkLoggedIn();
-        $peliculas=$this->model->getPeliculas();
-        $generos=$this->model->getGeneros();
+        $peliculas=$this->peliculasModel->getPeliculas();
+        $generos=$this->generosModel->getGeneros();
         $this->view->renderPeliculasAdmin($peliculas,$generos);
     }
 
     public function mostrarGenerosAdmin(){
         $this->checkLoggedIn();
-        $generos=$this->model->getGeneros();
+        $generos=$this->generosModel->getGeneros();
         $this->view->renderGenerosAdmin($generos);
     }
 
     public function borrarPelicula($params = null){
         $this->checkLoggedIn();
         $id=$params[":ID"];
-        $this->model->borrarPelicula($id);
+        $this->peliculasModel->borrarPelicula($id);
         $this->view->ShowHomeLocation();
     }
 
     public function insertarPelicula(){
         $this->checkLoggedIn();
-        $this->model->insertarPelicula();
+        $this->peliculasModel->insertarPelicula();
         $this->view->ShowHomeLocation();
     }
 
     public function insertarGenero(){
         $this->checkLoggedIn();
-        $this->model->insertarGenero();
+        $this->generosModel->insertarGenero();
         $this->view->ShowHomeLocation();
     }
 
     public function mostrarEditarPelicula($params=null){
         $this->checkLoggedIn();
         $id=$params[":ID"];
-        $generos=$this->model->getGeneros();
+        $generos=$this->generosModel->getGeneros();
         $this->view->renderEditarPelicula($id,$generos);
     }
 
     public function editarPelicula($params=null){
         $this->checkLoggedIn();
         $id=$params[":ID"];
-        $this->model->editarPelicula($id);
+        $this->peliculasModel->editarPelicula($id);
         $this->view->ShowHomeLocation();
     }
 
@@ -93,14 +95,14 @@ class PeliculasController{
     public function editarGenero($params = null){
         $this->checkLoggedIn();
         $id=$params[":ID"];
-        $this->model->editarGenero($id);
+        $this->generosModel->editarGenero($id);
         $this->view->ShowHomeLocation();
     }
 
     public function borrarGenero($params = null){
         $this->checkLoggedIn();
         $id = $params[":ID"];
-        $this->model->borrarGenero($id);
+        $this->generosModel->borrarGenero($id);
         $this->view->ShowHomeLocation();
     }
 
