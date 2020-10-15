@@ -5,13 +5,10 @@ require_once "./libs/smarty/Smarty.class.php";
 
 class PeliculasView {
 
-  private $smarty;
-    public function __construct(){
-      $this->smarty = new Smarty();   
-    }
+    private $smarty;
 
-    function mostrarError(){
-        echo "<h2> No se eligio genero </h2>";
+    public function __construct(){
+      $this->smarty = new Smarty(); 
     }
 
     function renderHome(){
@@ -23,7 +20,7 @@ class PeliculasView {
       $this->smarty->display('templates/tablaPelis.tpl');
     }
 
-    public function renderItem($pelicula){
+    public function renderItem($pelicula,$isLoggin){
       $this->smarty->assign('pelicula', $pelicula);
       $this->smarty->display('templates/item.tpl');
     }
@@ -56,7 +53,7 @@ class PeliculasView {
 
     function ShowHomeLocation(){
       header("Location: ".BASE_URL."peliculas");
-  }
+    }
 
 }
        

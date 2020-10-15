@@ -1,5 +1,6 @@
 <?php
 require_once "app/model/peliculasModel.php";
+require_once "app/model/generosModel.php";
 require_once 'app/view/peliculasView.php';
 
 class PeliculasController{
@@ -11,6 +12,14 @@ class PeliculasController{
         $this->view = new PeliculasView();
     }
 
+    private function checkLoggedIn(){
+        session_start();
+        if(!isset($_SESSION["EMAIL"])){
+            header("Location: ".LOGIN);
+        }
+    }
+
+    
     public function mostrarpeliculas($params = null){
         $genero = $params[":GENERO"];
         $peliculas=$this->model->getPeliculas($genero);
@@ -30,56 +39,66 @@ class PeliculasController{
     }
 
     public function mostrarPeliculasAdmin(){
+        $this->checkLoggedIn();
         $peliculas=$this->model->getPeliculas();
         $generos=$this->model->getGeneros();
         $this->view->renderPeliculasAdmin($peliculas,$generos);
     }
 
     public function mostrarGenerosAdmin(){
+        $this->checkLoggedIn();
         $generos=$this->model->getGeneros();
         $this->view->renderGenerosAdmin($generos);
     }
 
     public function borrarPelicula($params = null){
+        $this->checkLoggedIn();
         $id=$params[":ID"];
         $this->model->borrarPelicula($id);
         $this->view->ShowHomeLocation();
     }
 
     public function insertarPelicula(){
+        $this->checkLoggedIn();
         $this->model->insertarPelicula();
         $this->view->ShowHomeLocation();
     }
 
     public function insertarGenero(){
+        $this->checkLoggedIn();
         $this->model->insertarGenero();
         $this->view->ShowHomeLocation();
     }
 
     public function mostrarEditarPelicula($params=null){
+        $this->checkLoggedIn();
         $id=$params[":ID"];
         $generos=$this->model->getGeneros();
         $this->view->renderEditarPelicula($id,$generos);
     }
 
     public function editarPelicula($params=null){
+        $this->checkLoggedIn();
         $id=$params[":ID"];
         $this->model->editarPelicula($id);
         $this->view->ShowHomeLocation();
     }
 
     public function mostrarEditarGenero($params = null){
+        $this->checkLoggedIn();
         $id=$params[":ID"];
         $this->view->renderEditarGeneros($id);
     }
 
     public function editarGenero($params = null){
+        $this->checkLoggedIn();
         $id=$params[":ID"];
         $this->model->editarGenero($id);
         $this->view->ShowHomeLocation();
     }
 
     public function borrarGenero($params = null){
+        $this->checkLoggedIn();
         $id = $params[":ID"];
         $this->model->borrarGenero($id);
         $this->view->ShowHomeLocation();
