@@ -1,5 +1,5 @@
-<div class="container">
-<h1 class="tituloForm">{$textoForm} pelicula:</h2>
+<div class="containerForm">
+    <h1 class="tituloForm">{$textoForm} pelicula:</h2>
     <form action="{$action}" method="post">
         <div class="row">
         <div class="col">

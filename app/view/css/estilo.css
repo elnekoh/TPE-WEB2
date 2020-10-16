@@ -1,3 +1,6 @@
+body{
+    background-color: #4E4D83;
+}
 
 .container{
     display: flex;
@@ -32,14 +35,32 @@ p.descripcion{
 }
 
 .tabla{
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 60px;
     border-radius: 15px;
+    width: 1200px;
     border: solid black 5px;
-    width: 700px;
-    height: 500px;
+    background-color: white;
 }
 
 h1.tituloForm{
     text-align: center;
+}
+
+.containerForm{
+    background-color: white;
+    width: 1200px;
+    margin: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    border: solid black 5px;
+    border-radius: 15px;
+}
+
+form{
+    display: grid;
 }
 
 /*
