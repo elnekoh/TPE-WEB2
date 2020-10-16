@@ -18,6 +18,7 @@ class PeliculasController{
         session_start();
         if(!isset($_SESSION["EMAIL"])){
             header("Location: ".LOGIN);
+            die();
         }
     }
 
@@ -25,7 +26,8 @@ class PeliculasController{
     public function mostrarpeliculas($params = null){
         $genero = $params[":GENERO"];
         $peliculas=$this->peliculasModel->getPeliculas($genero);
-        $this->view->renderPeliculas($peliculas);
+        $generos=$this->generosModel->getGeneros();
+        $this->view->renderPeliculas($peliculas,$generos);
     }
     
     public function mostrarGeneros(){

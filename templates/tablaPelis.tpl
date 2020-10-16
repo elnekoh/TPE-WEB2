@@ -16,8 +16,12 @@
             <tr>
                 <th scope="row">{$contador++}</th>
                 <td><a href="pelicula/{$pelicula->id_pelicula}">{$pelicula->nombre}</a></td>
-                <td>{$pelicula->precio}</td>
-                <td>{$pelicula->id_genero}</td>
+                <td>${$pelicula->precio}</td>
+                <td>{foreach from=$generos item=genero}
+                    {if $genero->id_genero eq $pelicula->id_genero}
+                        {$genero->nombre}
+                    {/if}
+                {/foreach}</td>
             </tr>
         {/foreach}
 

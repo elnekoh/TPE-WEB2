@@ -16,8 +16,9 @@ class PeliculasView {
       $this->smarty->display('templates/tablaGeneros.tpl');
     }
 
-    public function renderPeliculas($peliculas){
+    public function renderPeliculas($peliculas,$generos){
       $this->smarty->assign('peliculas', $peliculas);
+      $this->smarty->assign('generos', $generos);
       $this->smarty->display('templates/tablaPelis.tpl');
     }
 
