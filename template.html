@@ -9,25 +9,22 @@
         <link rel="stylesheet" href="../app/view/css/estilo.css">
     </head>
     <body>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="home">Pelis.com</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="peliculas">Peliculas</a>
-            </li>
-            </ul>
-            <button></button>
-        </div>
-    </nav>
-          <!-- FORM ADMIN -->
+        <form class="containerForm" action="registrarUsuario" method="post">
+            <div class="row">
+                <div class="col">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col">
+                    <label for="correo">Correo</label>
+                    <input type="text" class="form-control">
+                </div>
+              </div>
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
         
         <!-- Scripts de Bootstrap-->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

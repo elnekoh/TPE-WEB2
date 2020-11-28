@@ -9,10 +9,20 @@ class UserView {
     public function __construct(){
         $this->smarty = new Smarty();  
     }
+
     public function renderLogin($mensaje= ""){
         $this->smarty->assign("mensaje",$mensaje);
-        $this->smarty->assign("isLoggin");
+        //$this->smarty->assign("isLoggin");
         $this->smarty->display("templates/login.tpl");
+    }
+
+    public function renderRegistro(){
+        $this->smarty->display("templates/registro.tpl");
+    }
+
+    public function renderUsuarios($usuarios){
+        $this->smarty->assign('usuarios', $usuarios);
+        $this->smarty->display("templates/adminUsuarios.tpl");
     }
 
     function ShowHomeLocation(){

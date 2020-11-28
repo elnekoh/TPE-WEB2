@@ -12,6 +12,19 @@ class UserController{
         $this->view = new UserView();
     }
 
+    private function checkLoggedInAdmin(){
+        session_start();
+        if(!isset($_SESSION["ROL"])){
+            header("Location: ".LOGIN);
+            die();
+        }else{
+            if($_SESSION["ROL"]!= "admin"){
+                header("Location: ".BASE_URL);
+                die();
+            }
+        }
+    }
+    
     public function mostrarLogin(){
         $this->view->renderLogin();
     }
@@ -32,6 +45,7 @@ class UserController{
                     //datos correctos!
                     session_start();
                     $_SESSION["EMAIL"] = $dbUser->email;
+                    $_SESSION["ROL"] = $dbUser->rol;
                     $this->view->ShowHomeLocation();
                 }else{
                     $this->view->renderLogin("Contraseña incorrecta!");
@@ -48,5 +62,48 @@ class UserController{
         session_start();
         session_destroy();
         header("Location: ".LOGIN);
+    }
+
+    public function mostrarRegistro(){
+        $this->view->renderRegistro();
+    }
+
+    public function registrarUsuario(){
+        $this->model->insertarUsuario();
+        $this->verificarDatos();
+        header("Location: ".BASE_URL);
+    }
+
+    public function mostrarUsuarios(){
+        $this->checkLoggedInAdmin();
+        $usuarios= $this->model->getUsuarios();
+        $this->view->renderUsuarios($usuarios);
+    }
+
+    public function hacerAdmin($params = null){
+        $this->checkLoggedInAdmin();
+        if($params != null){
+            $id = $params[":ID"];
+            $this->model->hacerAdmin($id);
+            header("Location: ".BASE_URL."admin/usuarios");
+        }
+    }
+
+    public function quitarAdmin($params = null){
+        $this->checkLoggedInAdmin();
+        if($params != null){
+            $id = $params[":ID"];
+            $this->model->quitarAdmin($id);
+            header("Location: ".BASE_URL."admin/usuarios");
+        }
+    }
+    
+    public function borrarUsuario($params = null){
+        $this->checkLoggedInAdmin();
+        if($params != null){
+            $id = $params[":ID"];
+            $this->model->borrarUsuario($id);
+            header("Location: ".BASE_URL."admin/usuarios");
+        }
     }
 }

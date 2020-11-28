@@ -9,6 +9,7 @@ define('LOGOUT', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . 
 
 $router= new Router();
 
+
 //rutas
 $router->addRoute("admin/peliculas", "GET", "peliculasController", "mostrarPeliculasAdmin");
 $router->addRoute("admin/generos","GET","peliculasController","mostrarGenerosAdmin");
@@ -29,12 +30,15 @@ $router->addRoute("editar/genero/:ID","GET","peliculasController","mostrarEditar
 $router->addRoute("editar/genero/sending/:ID", "POST", "peliculasController", "editarGenero");
 $router->addRoute("borrar/genero/:ID","GET", "peliculasController","borrarGenero");
 $router->addRoute("generos","GET", "peliculasController","mostrarGeneros");
-
-
+//rutas para ABM usuario
+$router->addRoute("registro","GET", "userController","mostrarRegistro");
+$router->addRoute("registrar","POST", "userController","registrarUsuario");
+$router->addRoute("admin/usuarios","GET", "userController","mostrarUsuarios");
+$router->addRoute("hacerAdmin/:ID","GET", "userController","hacerAdmin");
+$router->addRoute("quitarAdmin/:ID","GET", "userController","quitarAdmin");
+$router->addRoute("borrar/usuario/:ID","GET", "userController","borrarUsuario");
 //ruta por defecto
 $router->setDefaultRoute("peliculasController", "mostrarPeliculas");
 
 
 $router->route($_GET['action'], $_SERVER['REQUEST_METHOD']);
-
-//pass = user

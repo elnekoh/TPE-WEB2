@@ -39,6 +39,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="admin/peliculas">Administrar peliculas</a>
                                 <a class="dropdown-item" href="admin/generos">Administrar generos</a>
+                                <a class="dropdown-item" href="admin/usuarios">Administrar usuarios</a>
                             </div>
                         </li>
                     </ul>
