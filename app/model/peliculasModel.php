@@ -41,7 +41,7 @@ class PeliculasModel{
     public function insertarPelicula(){
           $query = $this->db->prepare("INSERT INTO pelicula(nombre, descripcion, precio, id_genero) VALUES(?,?,?,?)");
           $query->execute(array($_POST["nombre"],$_POST["descripcion"],$_POST["precio"],$_POST["id_genero"]));
-      }
+    }
 
     public function editarPelicula($id){
         $query = $this->db->prepare("UPDATE pelicula SET nombre=?, descripcion=?, precio=?, id_genero=? WHERE id_pelicula=?");

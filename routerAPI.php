@@ -1,20 +1,20 @@
 <?php
 require_once 'RouterClass.php';
-require_once 'api/ApiPeliculasController.php';
+require_once 'api/APIComentariosController.php';
 
 // instacio el router
 $router = new Router();
 
 // armo la tabla de ruteo de la API REST
-$router->addRoute('peliculas', 'GET', 'ApiPeliculasController', 'getPelicula');
-$router->addRoute('peliculas/:ID', 'GET', 'ApiPeliculasController', 'getPelicula');
-$router->addRoute('tareas/:ID', 'DELETE', 'ApiPeliculasController', 'deletePelicula');
+$router->addRoute('comentarios', 'GET', 'APIComentariosController', 'getComentarios');
+$router->addRoute('comentarios/:ID', 'GET', 'APIComentariosController', 'getComentario');
+$router->addRoute('comentarios/:ID', 'DELETE', 'APIComentariosController', 'deleteComentario');
 
-$router->addRoute('peliculas', 'POST', 'ApiPeliculasController', 'insertarPelicula');
-
-
-$router->addRoute('peliculas/:ID', 'PUT', 'ApiPeliculasController', 'editarPelicula');
+$router->addRoute('comentarios', 'POST', 'APIComentariosController', 'insertarComentario');
 
 
- //run
- $router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']); 
+$router->addRoute('comentarios/:ID', 'PUT', 'APIComentariosController', 'editarComentario');
+
+
+//run
+$router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']); 
