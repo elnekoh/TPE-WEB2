@@ -17,14 +17,14 @@ class ComentariosModel{
 
     //obtiene los comentarios POR ID DE PELICULA
     public function getComentarios($id){
-        $query = $this->db->prepare('SELECT * FROM comentario WHERE id_pelicula=?');
+        $query = $this->db->prepare('SELECT c.contenido, c.id_user, c.id_pelicula, c.puntuacion, u.nombre FROM comentario c INNER JOIN user u ON c.id_user=u.id_user AND id_pelicula=?');
         $query->execute(array($id));
         return $query->fetchALL(PDO::FETCH_OBJ);
     }
 
     //obtiene comentarios por ID
     public function getComentario($id){
-        $query = $this->db->prepare('SELECT * FROM comentario WHERE id_comentario=?');
+        $query = $this->db->prepare('SELECT c.contenido, c.id_user, c.id_pelicula, c.puntuacion, u.nombre FROM comentario c INNER JOIN user u ON c.id_user=u.id_user AND id_comentario=?');
         $query->execute(array($id));
         return $query->fetch(PDO::FETCH_OBJ);
     }
