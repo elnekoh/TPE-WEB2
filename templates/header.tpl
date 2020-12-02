@@ -43,8 +43,11 @@
                             </div>
                         </li>
                     </ul>
-                    <a href="login"><button type="button" class="btn btn-primary">Login</button></a> 
-                    <a href="logout"><button type="button" class="btn btn-danger">Logout</button></a> 
+                    {if $rol neq "public"}
+                        <a href="logout"><button type="button" class="btn btn-danger">Logout</button></a> 
+                    {else}
+                        <a href="login"><button type="button" class="btn btn-primary">Login</button></a> 
+                    {/if}
                 </div>
             </nav>
         </header>

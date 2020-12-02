@@ -11,12 +11,25 @@ class PeliculasView {
       $this->smarty = new Smarty(); 
     }
 
+    public function asignarRol(){
+      if(!empty($_SESSION)){
+        $rol = $_SESSION["ROL"];
+      }else{
+        $rol = "public";
+      }
+      $this->smarty->assign('rol', $rol);
+    }
+
     function renderGeneros($generos){
+      session_start();
+      $this->asignarRol();
       $this->smarty->assign('generos', $generos);
       $this->smarty->display('templates/tablaGeneros.tpl');
     }
 
     public function renderPeliculas($peliculas,$generos){
+      session_start();
+      $this->asignarRol();
       $this->smarty->assign('peliculas', $peliculas);
       $this->smarty->assign('generos', $generos);
       $this->smarty->display('templates/tablaPelis.tpl');
@@ -24,23 +37,19 @@ class PeliculasView {
 
     public function renderItem($pelicula){
         session_start();
+        $this->asignarRol();
         if(!empty($_SESSION)){
-          $rol = $_SESSION["ROL"];
-          $nombre = $_SESSION["NOMBRE"];
           $id = $_SESSION["USER_ID"];
         }else{
-          $rol = "public";
           $id = -1;
-          $nombre = "";
         }
-        $this->smarty->assign('rol', $rol);
-        $this->smarty->assign('nombre', $nombre);
         $this->smarty->assign('id', $id);
         $this->smarty->assign('pelicula', $pelicula);
         $this->smarty->display('templates/item.tpl');
     }
 
     public function renderPeliculasAdmin($peliculas,$generos){
+      $this->asignarRol();
       $this->smarty->assign('peliculas', $peliculas);
       $this->smarty->assign("generos", $generos);
       $this->smarty->assign("action","crear/pelicula");
@@ -49,6 +58,7 @@ class PeliculasView {
     }
 
     public function renderGenerosAdmin($generos){
+      $this->asignarRol();
       $this->smarty->assign("generos",$generos);
       $this->smarty->assign("action","crear/genero");
       $this->smarty->assign('textoForm', "Crear nuevo");
@@ -56,6 +66,7 @@ class PeliculasView {
     }
 
     public function renderEditarPelicula($id,$generos){
+      $this->asignarRol();
       $this->smarty->assign("id_pelicula",$id);
       $this->smarty->assign("generos",$generos);
       $this->smarty->assign("action","editar/pelicula/sending/".$id);
@@ -64,6 +75,7 @@ class PeliculasView {
     }
 
     public function renderEditarGeneros($id){
+      $this->asignarRol();
       $this->smarty->assign("id_genero",$id);
       $this->smarty->assign("action","editar/genero/sending/".$id);
       $this->smarty->assign('textoForm', "Editar");

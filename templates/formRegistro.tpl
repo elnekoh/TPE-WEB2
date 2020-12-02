@@ -1,3 +1,8 @@
+{if $rol neq "public"}
+    <div class="alert alert-danger" role="alert">
+        Ya estas logueado!
+    </div>  
+{else}    
 <div class="containerForm">
     <form action="registrar" method="post">
         <div class="row">
@@ -15,3 +20,4 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 <div/>
+{/if}

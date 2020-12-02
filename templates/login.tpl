@@ -1,4 +1,9 @@
 {include file="header.tpl"}
+{if $rol neq "public"}
+    <div class="alert alert-danger" role="alert">
+        Ya estas logueado!
+    </div>
+{else}    
 <div class="login">
 {if $mensaje neq ""}
     <div class="alert alert-danger" role="alert">
@@ -18,4 +23,5 @@
         <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
 </div>
+{/if}
 {include file="footer.tpl"}
