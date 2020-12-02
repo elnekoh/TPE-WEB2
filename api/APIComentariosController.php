@@ -10,15 +10,31 @@ class APIComentariosController extends APIController{
         $this->model = new ComentariosModel();
     }
 
-    public function getComentarios(){
-        $comentarios = $this->model->getComentarios();
+    public function getAllComentarios(){
+        $comentarios = $this->model->getAllComentarios();
         $this->view->response($comentarios,200);
     }
 
+
+    //obtiene comentarios por id
     public function getComentario($params = null){
         if($params!=null){
             $id = $params[":ID"];
             $comentario = $this->model->getComentario($id);
+            if($comentario != false){
+                $this->view->response($comentario,200);
+            }else{
+                $this->view->response("El comentario no existe",404);
+            }
+        }
+    }
+
+
+    //obtiene comentarios por id de pelicula
+    public function getComentarios($params = null){
+        if($params!=null){
+            $id = $params[":ID"];
+            $comentario = $this->model->getComentarios($id);
             if($comentario != false){
                 $this->view->response($comentario,200);
             }else{
@@ -41,7 +57,7 @@ class APIComentariosController extends APIController{
 
     public function insertarComentario(){
         $body = $this->getData();
-        $ultimoID = $this->model->insertarComentario($body->contenido,$body->id_user,$body->id_pelicula);
+        $ultimoID = $this->model->insertarComentario($body->contenido,$body->id_user,$body->id_pelicula,$body->puntuacion);
 
         if (!empty($ultimoID)){
             $this->view->response( $this->model->getComentario($ultimoID), 201);

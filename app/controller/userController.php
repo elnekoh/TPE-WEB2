@@ -46,6 +46,8 @@ class UserController{
                     session_start();
                     $_SESSION["EMAIL"] = $dbUser->email;
                     $_SESSION["ROL"] = $dbUser->rol;
+                    $_SESSION["USER_ID"] = $dbUser->id_user;
+                    $_SESSION["NOMBRE"] = $dbUser->nombre;
                     $this->view->ShowHomeLocation();
                 }else{
                     $this->view->renderLogin("Contraseña incorrecta!");

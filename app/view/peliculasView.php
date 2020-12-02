@@ -23,8 +23,21 @@ class PeliculasView {
     }
 
     public function renderItem($pelicula){
-      $this->smarty->assign('pelicula', $pelicula);
-      $this->smarty->display('templates/item.tpl');
+        session_start();
+        if(!empty($_SESSION)){
+          $rol = $_SESSION["ROL"];
+          $nombre = $_SESSION["NOMBRE"];
+          $id = $_SESSION["USER_ID"];
+        }else{
+          $rol = "public";
+          $id = -1;
+          $nombre = "";
+        }
+        $this->smarty->assign('rol', $rol);
+        $this->smarty->assign('nombre', $nombre);
+        $this->smarty->assign('id', $id);
+        $this->smarty->assign('pelicula', $pelicula);
+        $this->smarty->display('templates/item.tpl');
     }
 
     public function renderPeliculasAdmin($peliculas,$generos){

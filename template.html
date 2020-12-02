@@ -1,31 +1,56 @@
 <!DOCTYPE html>
     <html lang="en">
     <head>
+        <script src="./app/view/js/comentarios.js"></script>
         <base href="{BASE_URL}">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <link rel="stylesheet" href="../app/view/css/estilo.css">
+        <link rel="stylesheet" href="./app/view/css/estilo.css">
     </head>
     <body>
-        <form class="containerForm" action="registrarUsuario" method="post">
-            <div class="row">
-                <div class="col">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control">
+       
+        <ul class="cajaDeComentarios">
+            <li class="comentario">
+                <div class="comentario">
+                    <h5 class="usuario">nombre de usuario</h2>
+                    <p>contenigo Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati quae reprehenderit eius qui laboriosam libero voluptatem dolores ab numquam iure optio quis nobis, labore unde sint voluptate iste, modi sit.</p>
                 </div>
-                <div class="col">
-                    <label for="correo">Correo</label>
-                    <input type="text" class="form-control">
+            </li>
+            <li class="comentario">
+                <div class="comentario">
+                    <h5 class="usuario">nombre de usuario</h2>
+                    <p>contenigo Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati quae reprehenderit eius qui laboriosam libero voluptatem dolores ab numquam iure optio quis nobis, labore unde sint voluptate iste, modi sit.</p>
                 </div>
-              </div>
-              <label for="password">Password</label>
-              <input type="password" class="form-control" id="password">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        
+            </li>
+            <li class="comentario">
+                <div class="comentario">
+                    <h5 class="usuario">nombre de usuario</h2>
+                    <p>contenigo Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati quae reprehenderit eius qui laboriosam libero voluptatem dolores ab numquam iure optio quis nobis, labore unde sint voluptate iste, modi sit.</p>
+                </div>
+            </li>
+        </ul>
+
+        <div class="containerForm comentariosForm">
+            <form>
+                <div class="form-group">
+                  <label for="puntuacion">Puntuacion</label>
+                  <select class="form-control" id="puntuacion">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>sin puntuar</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="contenido">Contenido</label>
+                  <textarea class="form-control" id="contenido" rows="3"></textarea>
+                </div>
+              </form>
+        </div>
         <!-- Scripts de Bootstrap-->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

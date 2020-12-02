@@ -13,6 +13,10 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: solid black 5px;
+    border-radius: 15px;
+    background-color: #8FAE59;
+    margin-bottom: 50px;
 }
 
 .portada_item img {
@@ -61,6 +65,43 @@ h1.tituloForm{
 
 form{
     display: grid;
+}
+
+h2.titulo{
+text-align: center;
+}
+div.comentario{
+    background-color: #3D776D;
+    border: solid black 5px;
+    border-radius: 15px;
+    width: 450px;
+    padding: 10px;
+}
+
+.comentariosForm{
+    width: 450px;
+}
+
+li.comentario{
+    margin: inherit;
+}
+
+.cajaDeComentarios{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+h5.usuario{
+    font-weight: bold;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.oculto{
+    display: none;
 }
 
 /*
