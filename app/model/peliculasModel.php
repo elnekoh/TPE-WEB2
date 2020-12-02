@@ -17,7 +17,7 @@ class PeliculasModel{
             $peliculas = $query->fetchAll(PDO::FETCH_OBJ);
             return $peliculas;
         }else{
-            $query= $this->db->prepare('SELECT * FROM pelicula');
+            $query= $this->db->prepare("SELECT p.id_pelicula, p.nombre, p.descripcion, p.precio, p.id_genero, g.nombre nombreGenero FROM pelicula p INNER JOIN genero g ON p.id_genero=g.id_genero");
             $query->execute();
             $peliculas = $query->fetchAll(PDO::FETCH_OBJ);
             return $peliculas;
@@ -26,7 +26,7 @@ class PeliculasModel{
 
     public function getPelicula($id = null){
         if($id != null){
-            $query=$this->db->prepare("SELECT * FROM pelicula WHERE id_pelicula=?");
+            $query=$this->db->prepare("SELECT p.id_pelicula, p.nombre, p.descripcion, p.precio, p.id_genero, g.nombre FROM pelicula p INNER JOIN genero g ON p.id_genero=g.id_genero AND id_pelicula=?");
             $query->execute(array($id));
             $rowPelicula=$query->fetchAll(PDO::FETCH_OBJ);
             return $rowPelicula;

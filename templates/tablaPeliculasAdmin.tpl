@@ -18,7 +18,7 @@
                 <th scope="row">{$contador++}</th>
                 <a href="pelicula/{$pelicula->id_pelicula}"><td>{$pelicula->nombre}</td></a>
                 <td>{$pelicula->precio}</td>
-                <td>{$pelicula->id_genero}</td>
+                <td>{$pelicula->nombreGenero}</td>
                 <td>{$pelicula->id_pelicula}</td>
                 <td><a href="editar/pelicula/{$pelicula->id_pelicula}"><button type="button" class="btn btn-primary">Editar</button></a></td>
                 <td><a href="borrar/pelicula/{$pelicula->id_pelicula}"><button type="button" class="btn btn-danger">Borrar</button></a></td>
